@@ -1,12 +1,12 @@
 # Save-Load-System
 Basic save/load system implemented on a base Unity project
 
-Base Unity project used - https://github.com/NickoJ/Survival-shooter-unity
+Base Unity project used - https://github.com/NickoJ/Survival-shooter-unity<br />
 Note: Upgraded project to Unity version 2019.4.33f
 
 # Implementations
--Used binary formatter with Vector3 and Quaternion surrogates to serialize data
--Added "Save", "Load" and "Delete save" buttons in Pause Menu
+-Used binary formatter with Vector3 and Quaternion surrogates to serialize data <br />
+-Added "Save", "Load" and "Delete save" buttons in Pause Menu <br />
 -Enabled/Disabled "Load" and "Delete save" buttons depending on if a save file is present
 
 # Screenshots
