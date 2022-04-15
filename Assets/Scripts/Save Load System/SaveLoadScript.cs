@@ -30,7 +30,6 @@ public class SaveLoadScript
         {
             binaryFormatter.Serialize(fileStream, objectToSave);
         }
-        Debug.Log("saved");
         return true;
     }
 
@@ -44,14 +43,12 @@ public class SaveLoadScript
         string path = Path.Combine(Application.persistentDataPath, "saves", fileName + ".sav");
         if (!File.Exists(path))
         {
-            Debug.Log("file doesnt exists");
             return null;
         }
 
         BinaryFormatter binaryFormatter = GetBinaryFormatter();
         FileStream fileStream = new FileStream(path, FileMode.Open);
 
-        Debug.Log("loaded");
         using (fileStream)
         {
             object objectToLoad = binaryFormatter.Deserialize(fileStream);

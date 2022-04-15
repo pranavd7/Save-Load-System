@@ -25,6 +25,9 @@ public class SaveManager : MonoBehaviour
         RefreshButtons();
     }
 
+    /// <summary>
+    /// Save current game data into a file
+    /// </summary>
     public void SaveGame()
     {
         //find all enemy health scripts
@@ -43,9 +46,12 @@ public class SaveManager : MonoBehaviour
         RefreshButtons();
     }
 
+    /// <summary>
+    /// Clear map of all enemies and load the saved file
+    /// </summary>
     public void LoadGame()
     {
-        //find all enemy health scripts
+        //find all enemy health scripts and clear/destroy all enemies
         EnemyHealth[] enemyHealthArr = FindObjectsOfType<EnemyHealth>();
         foreach (EnemyHealth e in enemyHealthArr)
         {
@@ -80,6 +86,9 @@ public class SaveManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Delete the saved game file
+    /// </summary>
     public void DeleteSavedGame()
     {
         SaveLoadScript.DeleteSaveGame(saveFileName);
@@ -91,7 +100,6 @@ public class SaveManager : MonoBehaviour
     /// </summary>
     void RefreshButtons()
     {
-        Debug.Log("save exists:" + SaveLoadScript.SaveExists(saveFileName));
         loadButton.interactable = SaveLoadScript.SaveExists(saveFileName);
         deleteSaveButton.interactable = SaveLoadScript.SaveExists(saveFileName);
     }
