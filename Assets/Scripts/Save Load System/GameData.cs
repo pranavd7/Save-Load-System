@@ -25,12 +25,14 @@ public class GameData
     public List<EnemyData> enemyDataList;
     public int gameScore;
     public int playerHealth;
+    public Vector3 playerPosition;
 
-    public GameData(int score, int health, List<EnemyData> enemies)
+    public GameData(int score, int health, List<EnemyData> enemies, Vector3 position)
     {
         enemyDataList = enemies;
         gameScore = score;
         playerHealth = health;
+        playerPosition = position;
     }
 
 }

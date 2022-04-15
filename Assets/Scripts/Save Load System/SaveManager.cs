@@ -39,7 +39,7 @@ public class SaveManager : MonoBehaviour
             enemies.Add(new EnemyData(e));
         }
 
-        GameData gameData = new GameData(ScoreManager.score, playerHealth.CurrentHealth, enemies);
+        GameData gameData = new GameData(ScoreManager.score, playerHealth.CurrentHealth, enemies, playerHealth.transform.position);
 
         SaveLoadScript.Save(gameData, saveFileName);
 
@@ -62,12 +62,14 @@ public class SaveManager : MonoBehaviour
 
         playerHealth.CurrentHealth = gameData.playerHealth;
         ScoreManager.score = gameData.gameScore;
+        playerHealth.transform.position = gameData.playerPosition;
+
+        // instantiate all saved enemy according to type/name and set health to saved value
         for (int i = 0; i < gameData.enemyDataList.Count; i++)
         {
             EnemyData data = gameData.enemyDataList[i];
             EnemyHealth enemyHealth;
 
-            // instantiate enemy according to type/name and set health to saved value
             switch (data.enemyType)
             {
                 case "Zombear":
@@ -96,7 +98,7 @@ public class SaveManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Enable/Disable load and delete save buttons if a save file exists or not
+    /// Enable/Disable 'load' and 'delete save' buttons if a save file exists or not
     /// </summary>
     void RefreshButtons()
     {
