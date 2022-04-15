@@ -61,6 +61,8 @@ public class SaveManager : MonoBehaviour
         GameData gameData = (GameData)SaveLoadScript.Load(saveFileName);
 
         playerHealth.CurrentHealth = gameData.playerHealth;
+        playerHealth.healthSlider.value = playerHealth.CurrentHealth;
+
         ScoreManager.score = gameData.gameScore;
         playerHealth.transform.position = gameData.playerPosition;
 
